@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+
+    <title>Fake_News</title>
+  </head>
+  <body>
+    <section class="text-gray-400 body-font bg-gray-900">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h2 class="text-xs text-green-400 tracking-widest font-medium title-font mb-1">Machine Learning Project</h2>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Fake News Detection</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base"> You can paste a piece of text and examine its similarity to our collection of true vs false news articles. Enjoy testing!</p>
+          </div>
+          <div class="center">
+            <form action="/prediction" method="POST">
+                <div class="mb-3">
+                  <h2><label for="exampleInputEmail1" class="form-label" style="font-size: 24px;">Enter News Headline you want to check </label></h2>
+                  <div id="emailHelp" class="form-text"> </div>
+                  <textarea class="form-control" id="News" name="news" aria-describedby="emailHelp" style="width: 500px;"></textarea>
+                  <div id="emailHelp" class="form-text"> </div>
+                </div>
+                <button type="submit" class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Submit</button>
+
+                
+              </form>
+          </div>
+          <br>
+          <br><p style="font-size: 20px;"><b>{{prediction_text}}</b></p>
+          <br>
+      </section>
+  </body>
+</html>
